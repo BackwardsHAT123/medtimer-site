@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Med Timer: a dose countdown for short courses of medicine</title>
+<meta name="description" content="Tap Take and Med Timer counts down to your next dose, then reminds you when it's due. Made for short courses of medicine, like recovering from surgery. iPhone and iPad.">
+<link rel="canonical" href="https://medtimer.app/">
+<meta name="theme-color" content="#f2f7f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#08262e" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6838907427">
+<meta property="og:title" content="Med Timer: Dose Countdown">
+<meta property="og:description" content="Every med, its own countdown. Reminders when the next dose is due.">
+<meta property="og:image" content="https://medtimer.app/assets/og.jpg">
+<meta property="og:url" content="https://medtimer.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="36" height="36">Med Timer</a>
+    <nav class="site-nav" aria-label="Site">
+      <a class="nav-optional" href="#how">How it works</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1 class="display">Your next dose, counted down.</h1>
+      <p class="lede">Recovering from surgery, or halfway through a course of antibiotics? Tap Take when you take a dose. Med Timer shows how long until the next one, and reminds you when it's due.</p>
+      <div class="get">
+        <a href="https://apps.apple.com/app/id6838907427"><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+        <small>iPhone and iPad · $1.99, no subscription</small>
+      </div>
+    </div>
+
+    <div class="demo" data-state="due" aria-label="Try it: a working Med Timer card">
+      <div class="demo-top">
+        <div>
+          <div class="demo-name">Ibuprofen (Advil)</div>
+          <div class="demo-dose">600 mg, every 6 hours</div>
+        </div>
+      </div>
+      <div class="ring">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="track" cx="60" cy="60" r="52" fill="none" stroke-width="10"/>
+          <circle class="fill" cx="60" cy="60" r="52" fill="none" stroke-width="10" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0"/>
+        </svg>
+        <div class="ring-label" aria-live="polite">
+          <div class="ring-time" id="demo-time">Due now</div>
+          <div class="ring-sub" id="demo-sub">Overdue by 12 min</div>
+        </div>
+      </div>
+      <div class="demo-actions">
+        <button class="btn btn-take" id="demo-take" type="button">Take</button>
+        <button class="btn btn-undo" id="demo-undo" type="button" hidden>Undo</button>
+      </div>
+      <p class="demo-note" id="demo-note">Try it. This card works like the one in the app.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section course">
+  <div class="wrap">
+    <div>
+      <h2>Four medicines, four schedules, one bag from the pharmacy.</h2>
+      <p>The week after an operation usually comes with a handful of prescriptions, each on its own timetable, at a time when you're tired, sore and not sleeping well. It's easy to lose track of what you took and when.</p>
+      <p>Med Timer is made for exactly that. Each medicine gets its own countdown, set up the way the label says. When the course is over, it stops reminding you.</p>
+    </div>
+    <ul class="label" aria-label="An example recovery: how Med Timer handles each schedule">
+      <li>
+        <span class="rx-name">Oxycodone</span><span class="rx-dose">5 mg</span>
+        <span class="rx-how">Every 4 hours as needed. <b>Counts down from each dose you take.</b></span>
+      </li>
+      <li>
+        <span class="rx-name">Cephalexin</span><span class="rx-dose">500 mg</span>
+        <span class="rx-how">4 times a day for 7 days. <b>Every 6 hours, shows “Day 2 of 7”, ends on its own.</b></span>
+      </li>
+      <li>
+        <span class="rx-name">Docusate</span><span class="rx-dose">100 mg</span>
+        <span class="rx-how">With breakfast and dinner. <b>Reminds you at your meal times.</b></span>
+      </li>
+      <li>
+        <span class="rx-name">Ibuprofen</span><span class="rx-dose">2 × 400 mg</span>
+        <span class="rx-how">Every 6 hours, no more than 4 a day. <b>2× dose button and a daily limit check.</b></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section walk" id="how">
+  <div class="wrap">
+    <div class="phone-col">
+      <div class="phone">
+        <video id="walk-video" src="assets/walkthrough.mp4" poster="assets/walkthrough-poster.jpg" muted loop playsinline preload="metadata" width="540" height="1174" aria-label="Recording of Med Timer's welcome walkthrough: adding Ibuprofen, tapping Take, and the reminder"></video>
+      </div>
+    </div>
+    <div>
+      <h2>Set up in under a minute.</h2>
+      <p class="lede">No account, nothing to configure first. Open the app and add what's in the bag.</p>
+      <ol class="steps">
+        <li><div><h3>Add a medicine</h3><p>Search 60+ common medicines by generic or brand name, or type your own. Pick the dose and how often, straight from the label.</p></div></li>
+        <li><div><h3>Tap Take</h3><p>Its countdown starts. Took it a while ago? Log the time you actually took it.</p></div></li>
+        <li><div><h3>Get reminded</h3><p>When the next dose is due, a reminder pops up even if the app is closed. Mark it taken or snooze it from the notification.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section screens">
+  <div class="wrap">
+    <div class="screens-intro">
+      <h2>What's inside</h2>
+      <p>Swipe or scroll for more.</p>
+    </div>
+    <div class="strip" tabindex="0" aria-label="App screenshots">
+      <figure>
+        <div class="phone"><img src="assets/shots/today.jpg" alt="Today screen: four medicines, each with a countdown ring and a Take button" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>Every med, its own countdown</b><span>The one that's due sits at the top.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="assets/shots/alert.jpg" alt="A reminder reading Time for Ibuprofen (Advil), with Mark as Taken and Snooze" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>A reminder when it's time</b><span>Mark it taken or snooze it. A follow-up comes if you don't.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="assets/shots/editorLength.jpg" alt="Medication form set to 4 times a day for 7 days" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>Set it up the way your doctor said</b><span>4 times a day for 7 days? It works out the end date.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="assets/shots/editorMeals.jpg" alt="Medication form set to with breakfast and dinner" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>Taking it with meals?</b><span>Reminders at your breakfast, lunch and dinner times.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="assets/shots/detail.jpg" alt="Medication detail with a large countdown and the list of past doses" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>See exactly when you can take more</b><span>Plus every dose you've logged.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="assets/shots/search.jpg" alt="Search list of common medicines with brand names" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>60+ common medicines built in</b><span>Pain relief, antibiotics, anti-nausea, eye drops and more.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><img src="assets/shots/history.jpg" alt="History screen listing doses by day with a Share button" loading="lazy" width="720" height="1564"></div>
+        <figcaption><b>A dose log for your doctor</b><span>Every dose, by day, ready to share.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section privacy">
+  <div class="wrap">
+    <div>
+      <h2 class="display">Nothing leaves your phone.</h2>
+      <p>Med Timer has no account, no servers, no ads and no analytics. Your medicines and doses are saved on your device, and reminders are scheduled by your device. <a href="privacy.html">Read the privacy policy</a>.</p>
+    </div>
+    <ul>
+      <li><b>No sign-up</b><span>Open it and start. There's nothing to log in to.</span></li>
+      <li><b>No tracking</b><span>No analytics, advertising or third-party code. The App Store lists it as Data Not Collected.</span></li>
+      <li><b>Reminders that work offline</b><span>Notifications are scheduled on the device and never pass through a server.</span></li>
+      <li><b>Yours to delete</b><span>Erase everything from Settings in the app, or just delete the app.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section closing">
+  <div class="wrap">
+    <h2>Get through recovery one dose at a time.</h2>
+    <div class="get">
+      <a href="https://apps.apple.com/app/id6838907427"><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Med Timer is a reminder tool, not medical advice. The intervals in its medicine list are common starting points only. Always follow your prescription, the label, and your doctor or pharmacist.</p>
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy policy</a>
+      <span>© 2026 Med Timer</span>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
